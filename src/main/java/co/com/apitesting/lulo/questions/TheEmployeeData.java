@@ -1,4 +1,4 @@
-package co.com.apitesting.lulo.tasks;
+package co.com.apitesting.lulo.questions;
 
 import co.com.apitesting.lulo.model.Employee;
 import io.restassured.response.Response;
@@ -9,8 +9,6 @@ import net.serenitybdd.screenplay.Question;
 import static co.com.apitesting.lulo.utils.Constants.SUCCESSFUL_STATUS_CODE;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
-
-import java.util.List;
 
 public class TheEmployeeData implements Question<Object> {
     private Employee expectedEmployee;

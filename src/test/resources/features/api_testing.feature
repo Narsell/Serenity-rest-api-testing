@@ -25,3 +25,11 @@ Feature: API Testing
     Then the user should get the data of one single employee
       | id |     name     |   salary   |   age   | profile image |
       | 1  | Tiger Nixon |   320800   |    61   |     [blank]    |
+
+  @add-one-employee
+  Scenario: Add a new record to the employees database
+    When the user sends a request via POST to the endpoint "/create"
+      | id |     name     |   salary   |   age   | profile image |
+      | 1  | Tiger Nixon |   320800   |    61   |     [blank]    |
+    Then the user should be able to verify the data was added successfully
+      | successfulMessage | Successfully! Record has been added. |

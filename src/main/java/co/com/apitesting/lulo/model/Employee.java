@@ -1,11 +1,11 @@
 package co.com.apitesting.lulo.model;
 
 public class Employee {
-    public int id;
-    public String name;
-    public int salary;
-    public int age;
-    public String profileImage;
+    private int id;
+    private String name;
+    private int salary;
+    private int age;
+    private String profileImage;
 
     public Employee(Integer id, String employee_name, Integer employee_salary, Integer employee_age, String profile_image) {
         this.id = id;

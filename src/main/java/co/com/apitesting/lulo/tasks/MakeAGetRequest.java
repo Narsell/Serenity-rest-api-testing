@@ -6,15 +6,15 @@ import net.serenitybdd.screenplay.Tasks;
 import net.serenitybdd.screenplay.rest.interactions.Get;
 
 
-public class MakeARequest implements Task {
+public class MakeAGetRequest implements Task {
     private final String endpoint;
 
-    public MakeARequest(String endpoint) {
+    public MakeAGetRequest(String endpoint) {
         this.endpoint = endpoint;
     }
 
-    public static MakeARequest toThe(String endpoint) {
-        return Tasks.instrumented(MakeARequest.class, endpoint);
+    public static MakeAGetRequest toThe(String endpoint) {
+        return Tasks.instrumented(MakeAGetRequest.class, endpoint);
     }
 
     @Override

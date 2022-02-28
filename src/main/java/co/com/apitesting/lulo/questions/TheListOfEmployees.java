@@ -1,4 +1,4 @@
-package co.com.apitesting.lulo.tasks;
+package co.com.apitesting.lulo.questions;
 
 import co.com.apitesting.lulo.model.Employee;
 import co.com.apitesting.lulo.utils.RandomNumber;
