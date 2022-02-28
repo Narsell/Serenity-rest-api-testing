@@ -1,7 +1,8 @@
 package co.com.apitesting.lulo.stepdefinitions;
 
 import co.com.apitesting.lulo.model.Employee;
-import co.com.apitesting.lulo.tasks.theListOfEmployees;
+import co.com.apitesting.lulo.tasks.TheEmployeeData;
+import co.com.apitesting.lulo.tasks.TheListOfEmployees;
 import co.com.apitesting.lulo.tasks.MakeARequest;
 import io.cucumber.java.Before;
 import io.cucumber.java.DataTableType;
@@ -56,11 +57,12 @@ public class ApiTestingStepDefinitions {
 
     @Then("the user should get the data of {string} employees")
     public void theUserShouldGeTheDataOfEmployees(String expectedResponseSize, List<Employee> expectedEmployees) {
-        theActorInTheSpotlight().should(seeThat(theListOfEmployees.matches(expectedEmployees, expectedResponseSize)));
+        theActorInTheSpotlight().should(seeThat(TheListOfEmployees.matches(expectedEmployees, expectedResponseSize)));
     }
 
     @Then("the user should get the data of one single employee")
-    public void theUserShouldGetTheDataOfOneSingleEmployee(List<Employee> employee) {
+    public void theUserShouldGetTheDataOfOneSingleEmployee(List<Employee> expectedEmployee) {
+        theActorInTheSpotlight().should(seeThat(TheEmployeeData.matches(expectedEmployee.get(0))));
 
     }
 }

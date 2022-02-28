@@ -11,30 +11,30 @@ import org.apache.logging.log4j.Logger;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
+import static co.com.apitesting.lulo.utils.Constants.SUCCESSFUL_STATUS_CODE;
 
 import java.util.List;
 
-public class theListOfEmployees implements Question<Object>{
+public class TheListOfEmployees implements Question<Object>{
     private final List<Employee> expectedEmployees;
     private final String expectedResponseSize;
-    private final int expectedStatusCOde = 200;
 
-    private static final Logger logger = LogManager.getLogger(theListOfEmployees.class);
+    private static final Logger logger = LogManager.getLogger(TheListOfEmployees.class);
 
-    public theListOfEmployees(List<Employee> expectedEmployees, String expectedResponseSize) {
+    public TheListOfEmployees(List<Employee> expectedEmployees, String expectedResponseSize) {
         this.expectedEmployees = expectedEmployees;
         this.expectedResponseSize = expectedResponseSize;
     }
 
-    public static theListOfEmployees matches(List<Employee> employees, String responseSize) {
-        return new theListOfEmployees(employees, responseSize);
+    public static TheListOfEmployees matches(List<Employee> employees, String responseSize) {
+        return new TheListOfEmployees(employees, responseSize);
     }
 
     @Override
     public Object answeredBy(Actor actor) {
 
         Response response = SerenityRest.lastResponse();
-        assertThat(response.getStatusCode(), equalTo(expectedStatusCOde));
+        assertThat(response.getStatusCode(), equalTo(SUCCESSFUL_STATUS_CODE));
 
         /*
         List<Employee> users = response
@@ -48,6 +48,6 @@ public class theListOfEmployees implements Question<Object>{
 
         assertThat(employeeNames.size(), equalTo(Integer.parseInt(expectedResponseSize)));
 
-        return 0;
+        return null;
     }
 }
