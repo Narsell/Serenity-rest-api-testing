@@ -25,10 +25,9 @@ public class TheEmployeeData implements Question<Object> {
     public Object answeredBy(Actor actor) {
         Response response = SerenityRest.lastResponse();
         assertThat(response.getStatusCode(), equalTo(SUCCESSFUL_STATUS_CODE));
-
         String employeeName = response.path("data.employee_name");
         assertThat(employeeName, equalTo(expectedEmployee.getName()));
-
+        System.out.println(response.prettyPrint());
         return null;
     }
 }

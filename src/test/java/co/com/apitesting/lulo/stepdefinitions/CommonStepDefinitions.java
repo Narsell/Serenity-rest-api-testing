@@ -25,7 +25,7 @@ import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 
-public class ApiTestingStepDefinitions {
+public class CommonStepDefinitions {
     private EnvironmentVariables environmentVariables;
 
     @DataTableType(replaceWithEmptyString = "[blank]")
@@ -47,8 +47,8 @@ public class ApiTestingStepDefinitions {
         theActorCalled("Daniel").whoCan(CallAnApi.at(apiBaseUrl));
     }
 
-    @Given("that the user meets the requirements to make request to API")
-    public void thatTheUserMeetsTheRequirementsToMakeRequestToAPI() {
+    @Given("that the user meets the requirements to make requests to the API")
+    public void thatTheUserMeetsTheRequirementsToMakeRequestsToTheAPI() {
         theActorInTheSpotlight().wasAbleTo();
     }
 
@@ -57,24 +57,4 @@ public class ApiTestingStepDefinitions {
         theActorInTheSpotlight().attemptsTo(MakeAGetRequest.toThe(endpoint));
     }
 
-    @Then("the user should get the data of {string} employees")
-    public void theUserShouldGeTheDataOfEmployees(String expectedResponseSize, List<Employee> expectedEmployees) {
-        theActorInTheSpotlight().should(seeThat(TheListOfEmployees.matches(expectedEmployees, expectedResponseSize)));
-    }
-
-    @Then("the user should get the data of one single employee")
-    public void theUserShouldGetTheDataOfOneSingleEmployee(List<Employee> expectedEmployee) {
-        theActorInTheSpotlight().should(seeThat(TheEmployeeData.matches(expectedEmployee.get(0))));
-
-    }
-
-    @When("the user sends a request via POST to the endpoint {string}")
-    public void theUserSendsARequestViaPOSTToTheEndpoint(String endpoint, List<Employee> employeeToAdd) {
-        theActorInTheSpotlight().attemptsTo(AddANewRecord.with(employeeToAdd.get(0), endpoint));
-    }
-
-    @Then("the user should be able to verify the data was added successfully")
-    public void theUserShouldBeAbleToVerifyTheDataWasAddedSuccessfully(Map<String, List<String>> successfulMessage) {
-        theActorInTheSpotlight().should(seeThat(TheEmployeeWasAdded.successfully(successfulMessage)));
-    }
 }

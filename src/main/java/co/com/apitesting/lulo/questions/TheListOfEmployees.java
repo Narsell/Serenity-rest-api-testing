@@ -45,9 +45,8 @@ public class TheListOfEmployees implements Question<Object>{
         List<String> employeeNames = response.path("data.employee_name");
         int index = RandomNumber.getRandomNumber(0, expectedEmployees.size()-1);
         assertThat(employeeNames, hasItem(expectedEmployees.get(index).getName()));
-
         assertThat(employeeNames.size(), equalTo(Integer.parseInt(expectedResponseSize)));
-
+        System.out.println(response.prettyPrint());
         return null;
     }
 }
