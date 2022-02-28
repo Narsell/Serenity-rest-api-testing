@@ -1,6 +1,7 @@
 package co.com.apitesting.lulo.questions;
 
 import co.com.apitesting.lulo.model.Employee;
+import co.com.apitesting.lulo.utils.JsonTo;
 import io.restassured.response.Response;
 import net.serenitybdd.rest.SerenityRest;
 import net.serenitybdd.screenplay.Actor;
@@ -25,9 +26,8 @@ public class TheEmployeeData implements Question<Object> {
     public Object answeredBy(Actor actor) {
         Response response = SerenityRest.lastResponse();
         assertThat(response.getStatusCode(), equalTo(SUCCESSFUL_STATUS_CODE));
-        String employeeName = response.path("data.employee_name");
-        assertThat(employeeName, equalTo(expectedEmployee.getName()));
-        System.out.println(response.prettyPrint());
+        Employee employee = JsonTo.employee(response);
+        assertThat(employee, samePropertyValuesAs(expectedEmployee));
         return null;
     }
 }

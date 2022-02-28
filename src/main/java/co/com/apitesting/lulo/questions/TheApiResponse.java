@@ -32,7 +32,6 @@ public class TheApiResponse implements Question<Object> {
         String expectedMessage = this.expectedMessage.get("message").get(0);
         String message = response.path("message");
         assertThat(message, equalTo(expectedMessage));
-        System.out.println(response.prettyPrint());
         return null;
     }
 }

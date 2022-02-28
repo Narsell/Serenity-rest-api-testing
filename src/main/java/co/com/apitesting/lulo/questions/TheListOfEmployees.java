@@ -1,6 +1,7 @@
 package co.com.apitesting.lulo.questions;
 
 import co.com.apitesting.lulo.model.Employee;
+import co.com.apitesting.lulo.utils.JsonTo;
 import co.com.apitesting.lulo.utils.RandomNumber;
 import io.restassured.response.Response;
 import net.serenitybdd.rest.SerenityRest;
@@ -12,7 +13,9 @@ import org.apache.logging.log4j.Logger;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static co.com.apitesting.lulo.utils.Constants.SUCCESSFUL_STATUS_CODE;
+import static org.hamcrest.Matchers.samePropertyValuesAs;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class TheListOfEmployees implements Question<Object>{
@@ -35,18 +38,10 @@ public class TheListOfEmployees implements Question<Object>{
 
         Response response = SerenityRest.lastResponse();
         assertThat(response.getStatusCode(), equalTo(SUCCESSFUL_STATUS_CODE));
-
-        /*
-        List<Employee> users = response
-                .jsonPath()
-                .getList("data", Employee.class);
-         */
-
-        List<String> employeeNames = response.path("data.employee_name");
+        List<Employee> employees = JsonTo.employees(response);
         int index = RandomNumber.getRandomNumber(0, expectedEmployees.size()-1);
-        assertThat(employeeNames, hasItem(expectedEmployees.get(index).getName()));
-        assertThat(employeeNames.size(), equalTo(Integer.parseInt(expectedResponseSize)));
-        System.out.println(response.prettyPrint());
+        assertThat(employees.get(index), samePropertyValuesAs(expectedEmployees.get(index)));
+        assertThat(employees.size(), equalTo(Integer.parseInt(expectedResponseSize)));
         return null;
     }
 }
