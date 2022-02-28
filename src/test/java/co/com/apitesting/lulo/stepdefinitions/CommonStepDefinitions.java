@@ -1,10 +1,7 @@
 package co.com.apitesting.lulo.stepdefinitions;
 
 import co.com.apitesting.lulo.model.Employee;
-import co.com.apitesting.lulo.questions.TheEmployeeWasAdded;
-import co.com.apitesting.lulo.tasks.AddANewRecord;
-import co.com.apitesting.lulo.questions.TheEmployeeData;
-import co.com.apitesting.lulo.questions.TheListOfEmployees;
+import co.com.apitesting.lulo.questions.TheApiResponse;
 import co.com.apitesting.lulo.tasks.MakeAGetRequest;
 import io.cucumber.java.Before;
 import io.cucumber.java.DataTableType;
@@ -55,6 +52,11 @@ public class CommonStepDefinitions {
     @When("the user sends a request via GET to the endpoint {string}")
     public void theUserSendsARequestViaGETtoTheEndpoint(String endpoint) {
         theActorInTheSpotlight().attemptsTo(MakeAGetRequest.toThe(endpoint));
+    }
+
+    @Then("the user should verify the status code {string} and the response body")
+    public void theUserShouldVerifyTheStatusCodeAndTheResponseBody(String expectedStatusCode, Map<String, List<String>> expectedMessage) {
+        theActorInTheSpotlight().should(seeThat(TheApiResponse.matches(expectedStatusCode, expectedMessage)));
     }
 
 }

@@ -9,7 +9,7 @@ import java.util.List;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
-public class GetEmployeeStepDefinitions {
+public class GetOneEmployeeStepDefinitions {
     @Then("the user should get the data of one single employee")
     public void theUserShouldGetTheDataOfOneSingleEmployee(List<Employee> expectedEmployee) {
         theActorInTheSpotlight().should(seeThat(TheEmployeeData.matches(expectedEmployee.get(0))));
