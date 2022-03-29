@@ -1,6 +1,6 @@
-package co.com.apitesting.lulo.stepdefinitions;
+package co.com.apitesting.stepdefinitions;
 
-import co.com.apitesting.lulo.tasks.RemoveAnEmployee;
+import co.com.apitesting.tasks.RemoveAnEmployee;
 import io.cucumber.java.en.When;
 
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;

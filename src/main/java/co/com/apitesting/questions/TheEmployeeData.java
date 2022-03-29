@@ -1,13 +1,13 @@
-package co.com.apitesting.lulo.questions;
+package co.com.apitesting.questions;
 
-import co.com.apitesting.lulo.model.Employee;
-import co.com.apitesting.lulo.utils.JsonTo;
+import co.com.apitesting.model.Employee;
+import co.com.apitesting.utils.JsonTo;
 import io.restassured.response.Response;
 import net.serenitybdd.rest.SerenityRest;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
 
-import static co.com.apitesting.lulo.utils.Constants.SUCCESSFUL_STATUS_CODE;
+import static co.com.apitesting.utils.Constants.SUCCESSFUL_STATUS_CODE;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 

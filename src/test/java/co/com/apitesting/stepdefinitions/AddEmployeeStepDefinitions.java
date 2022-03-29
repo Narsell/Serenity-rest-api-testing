@@ -1,12 +1,11 @@
-package co.com.apitesting.lulo.stepdefinitions;
+package co.com.apitesting.stepdefinitions;
 
-import co.com.apitesting.lulo.model.Employee;
-import co.com.apitesting.lulo.tasks.AddANewRecord;
+import co.com.apitesting.model.Employee;
+import co.com.apitesting.tasks.AddANewRecord;
 import io.cucumber.java.en.When;
 
 import java.util.List;
 
-import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
 public class AddEmployeeStepDefinitions {

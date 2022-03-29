@@ -1,6 +1,6 @@
-package co.com.apitesting.lulo.tasks;
+package co.com.apitesting.tasks;
 
-import co.com.apitesting.lulo.model.Employee;
+import co.com.apitesting.model.Employee;
 import io.restassured.http.Header;
 import io.restassured.http.Headers;
 import net.serenitybdd.screenplay.Actor;

@@ -1,8 +1,8 @@
-package co.com.apitesting.lulo.stepdefinitions;
+package co.com.apitesting.stepdefinitions;
 
-import co.com.apitesting.lulo.model.Employee;
-import co.com.apitesting.lulo.questions.TheApiResponse;
-import co.com.apitesting.lulo.tasks.MakeAGetRequest;
+import co.com.apitesting.model.Employee;
+import co.com.apitesting.questions.TheApiResponse;
+import co.com.apitesting.tasks.MakeAGetRequest;
 import io.cucumber.java.Before;
 import io.cucumber.java.DataTableType;
 import io.cucumber.java.en.Given;

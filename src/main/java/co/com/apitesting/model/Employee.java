@@ -1,4 +1,4 @@
-package co.com.apitesting.lulo.model;
+package co.com.apitesting.model;
 
 public class Employee {
     private int id;

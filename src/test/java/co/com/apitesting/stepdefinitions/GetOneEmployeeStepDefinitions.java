@@ -1,7 +1,7 @@
-package co.com.apitesting.lulo.stepdefinitions;
+package co.com.apitesting.stepdefinitions;
 
-import co.com.apitesting.lulo.model.Employee;
-import co.com.apitesting.lulo.questions.TheEmployeeData;
+import co.com.apitesting.model.Employee;
+import co.com.apitesting.questions.TheEmployeeData;
 import io.cucumber.java.en.Then;
 
 import java.util.List;

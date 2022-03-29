@@ -1,14 +1,15 @@
-package co.com.apitesting.lulo.questions;
+package co.com.apitesting.questions;
 
 import io.restassured.response.Response;
 import net.serenitybdd.rest.SerenityRest;
 import net.serenitybdd.screenplay.Actor;
+import net.serenitybdd.screenplay.GivenWhenThen;
 import net.serenitybdd.screenplay.Question;
+import net.serenitybdd.screenplay.questions.Text;
 
 import java.util.List;
 import java.util.Map;
 
-import static co.com.apitesting.lulo.utils.Constants.SUCCESSFUL_STATUS_CODE;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 

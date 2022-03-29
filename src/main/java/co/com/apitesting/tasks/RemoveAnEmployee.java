@@ -1,4 +1,4 @@
-package co.com.apitesting.lulo.tasks;
+package co.com.apitesting.tasks;
 
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;

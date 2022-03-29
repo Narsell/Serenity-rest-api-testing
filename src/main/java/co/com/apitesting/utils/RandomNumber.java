@@ -1,4 +1,4 @@
-package co.com.apitesting.lulo.utils;
+package co.com.apitesting.utils;
 
 public class RandomNumber {
     public static int getRandomNumber(int min, int max) {
